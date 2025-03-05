@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
           transform: `translateY(${offsetY * 0.5}px)`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/70 to-background z-10" />
         <img
           src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?q=80&w=3270&auto=format&fit=crop"
           alt="Scenic mountain landscape"
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
             className="mb-2"
           />
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance gradient-text">
             Discover hidden gems with personalized travel plans
           </h1>
           
@@ -57,6 +57,7 @@ const Hero: React.FC = () => {
             <PrimaryButton 
               size="lg" 
               endIcon={<ArrowRight className="h-4 w-4" />}
+              className="pulse-glow"
             >
               Plan Your Trip
             </PrimaryButton>

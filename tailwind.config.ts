@@ -67,7 +67,9 @@ export default {
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				xl: 'calc(var(--radius) + 2px)',
+				'2xl': 'calc(var(--radius) + 4px)',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -115,6 +117,10 @@ export default {
 				'pulse-slow': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
@@ -124,8 +130,33 @@ export default {
 				'fade-up': 'fade-up 0.6s ease-out',
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
 				'blur-in': 'blur-in 0.7s ease-out',
-				'pulse-slow': 'pulse-slow 3s infinite'
-			}
+				'pulse-slow': 'pulse-slow 3s infinite',
+				'float': 'float 5s ease-in-out infinite'
+			},
+			boxShadow: {
+				'soft': '0 10px 30px -12px rgba(0, 0, 0, 0.1)',
+				'card': '0 2px 8px -2px rgba(0, 0, 0, 0.05)',
+				'elevated': '0 10px 40px -12px rgba(0, 0, 0, 0.25)',
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: '65ch',
+						color: 'hsl(var(--foreground))',
+						a: {
+							color: 'hsl(var(--primary))',
+							textDecoration: 'none',
+							'&:hover': {
+								textDecoration: 'underline',
+							},
+						},
+						'h1,h2,h3,h4,h5,h6': {
+							color: 'hsl(var(--foreground))',
+							fontWeight: '600',
+						},
+					},
+				},
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

@@ -16,10 +16,10 @@ const Chip: React.FC<ChipProps> = ({
   className
 }) => {
   const colorVariants = {
-    primary: 'bg-primary/10 text-primary',
-    secondary: 'bg-secondary text-secondary-foreground',
-    accent: 'bg-accent/10 text-accent',
-    muted: 'bg-muted text-muted-foreground'
+    primary: 'bg-primary/15 text-primary border border-primary/20',
+    secondary: 'bg-secondary text-secondary-foreground border border-secondary/50',
+    accent: 'bg-accent/15 text-accent border border-accent/20',
+    muted: 'bg-muted text-muted-foreground border border-muted/50'
   };
 
   const sizeVariants = {
@@ -31,7 +31,7 @@ const Chip: React.FC<ChipProps> = ({
   return (
     <div
       className={cn(
-        'inline-flex items-center rounded-full font-medium',
+        'inline-flex items-center rounded-full font-medium shadow-sm',
         colorVariants[color],
         sizeVariants[size],
         className

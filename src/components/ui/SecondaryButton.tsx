@@ -29,15 +29,15 @@ const SecondaryButton: React.FC<SecondaryButtonProps> = ({
   };
 
   const variantClasses = {
-    default: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-    outline: 'border border-secondary text-foreground hover:bg-secondary/30',
-    ghost: 'text-foreground hover:bg-secondary'
+    default: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-sm hover:shadow-md',
+    outline: 'border border-secondary text-foreground hover:bg-secondary/30 shadow-sm hover:shadow-md',
+    ghost: 'text-foreground hover:bg-secondary shadow-none hover:shadow-sm'
   };
 
   return (
     <button
       className={cn(
-        'inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
+        'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
         sizeClasses[size],
         variantClasses[variant],
         fullWidth && 'w-full',
@@ -45,9 +45,9 @@ const SecondaryButton: React.FC<SecondaryButtonProps> = ({
       )}
       {...props}
     >
-      {startIcon && <span className="mr-2">{startIcon}</span>}
+      {startIcon && <span className="mr-2 transition-transform">{startIcon}</span>}
       {children}
-      {endIcon && <span className="ml-2">{endIcon}</span>}
+      {endIcon && <span className="ml-2 transition-transform">{endIcon}</span>}
     </button>
   );
 };

@@ -55,12 +55,13 @@ const DestinationExplorer: React.FC = () => {
     : destinations.filter(dest => dest.category === activeCategory);
 
   return (
-    <section className="py-24 bg-secondary/30">
+    <section className="py-24 gradient-bg">
       <div className="container px-4 mx-auto">
         <SectionHeading
           title="Discover Hidden Gems"
           subtitle="Explore unique destinations that most travelers miss, curated by our AI based on real traveler experiences."
           align="center"
+          titleClassName="gradient-text"
         />
         
         {/* Categories */}
@@ -71,8 +72,8 @@ const DestinationExplorer: React.FC = () => {
               className={cn(
                 "px-4 py-2 rounded-full transition-all",
                 activeCategory === category 
-                  ? "bg-foreground text-background shadow-md" 
-                  : "bg-background text-foreground hover:bg-background/80"
+                  ? "bg-primary text-primary-foreground shadow-md" 
+                  : "bg-background shadow-soft hover:shadow-md hover:-translate-y-0.5 hover:bg-background/80"
               )}
               onClick={() => setActiveCategory(category)}
             >
@@ -87,7 +88,7 @@ const DestinationExplorer: React.FC = () => {
             <div 
               key={destination.id}
               className={cn(
-                "group bg-card rounded-xl overflow-hidden transition-all duration-300 shadow-md hover:shadow-xl",
+                "group bg-card rounded-xl overflow-hidden card-hover",
                 hoveredCard === destination.id && "scale-[1.02]"
               )}
               onMouseEnter={() => setHoveredCard(destination.id)}
@@ -97,7 +98,7 @@ const DestinationExplorer: React.FC = () => {
                 <ImageWithOverlay
                   src={destination.image}
                   alt={destination.name}
-                  className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full transition-transform duration-700 group-hover:scale-110"
                   overlayOpacity="20"
                 />
               </div>
@@ -108,8 +109,9 @@ const DestinationExplorer: React.FC = () => {
                     label={destination.category} 
                     color="accent" 
                     size="sm" 
+                    className="shadow-sm"
                   />
-                  <div className="flex items-center">
+                  <div className="flex items-center bg-yellow-500/10 px-2 py-1 rounded-full">
                     <svg className="w-4 h-4 text-yellow-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
@@ -138,6 +140,7 @@ const DestinationExplorer: React.FC = () => {
           <PrimaryButton 
             variant="outline" 
             endIcon={<ArrowRight className="h-4 w-4" />}
+            className="hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
           >
             View All Destinations
           </PrimaryButton>
